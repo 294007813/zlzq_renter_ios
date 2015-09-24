@@ -16,8 +16,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             "click .loginout": "loginout",
             "click .avatar-box ": "modifyPic",//选择修改头像
             "click  .pic-box .cancel": "cancelEditing",
-            "click #choose-box": "readFile",//选择相册
-            "click #camera": "camera",//拍照
+            "change .photos": "readFile",//选择相册
+            "click #camera": "camera"//拍照
 
         },
 
@@ -35,27 +35,17 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
         },
         //点击选择相册
         readFile: function (e) {
-            self.iframeContent.contentWindow.getPictureFromPhoto(function(data){
-                $('#picture').attr('src','data:image/jpeg;base64,'+data);
+
+            var self=this,
+                file = e.currentTarget.files[0];
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function(e) {
+                $('#picture')[0].src = this.result;
                 self.cancelEditing();
-                self.uploadPicture(data);
 
-
-            })
-
-            //var self=this;
-            //var self=this;
-            //    file = e.currentTarget.files[0];
-            //if(!/image\/\w+/.test(file.type)){
-            //    alert("请确保文件为图像类型");
-            //    return false;
-            //}
-            //var reader = new FileReader();
-            //reader.readAsDataURL(file);
-            //reader.onload = function(e) {
-            //    //self.$el.find(".avatar")[0].src = this.result;
-            //    self.cancelEditing();
-            //}
+                self.uploadPicture(this.result.substring(this.result.lastIndexOf(";")+8));
+            }
 
         },
         uploadPicture:function(data){
@@ -349,39 +339,32 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             self.showMyToast('网络错误，请重试', 2000);
         },
 
-        afterIframeLoad:function() {
-            var iDoc = self.iframeContent.contentDocument || self.iframeContent.document;
-
-            self.hideLoading();
-
-
-        },
-
         onCreate: function () {
-
             self = this;
-            self.$el.html(tplPersonal);
-
         },
         GetData: function (e) {
             this.showLoading();
-            var url=Lizard.host+Lizard.apiUrl+"users/"+self.getCurrentUser().id+"?auth_token="+self.getCurrentUser().token;
+            var url = Lizard.host + Lizard.apiUrl + "users/" + self.getCurrentUser().id + "?auth_token=" + self.getCurrentUser().token + "&t=" + (+new Date());
             $.ajax({
                 url: url,
                 dataType: "json",
                 type: "get",
                 success: function (data) {
                     self.hideLoading();
-                    if (data.error) {
+                    data = data || {};
+                    self.$el.html(_.template(tplPersonal)({
+                        user: {
+                            nick_name: self.user.nick_name,
+                            cell: self.user.cell,
+                            avatar: self.user.avatar.avatar.url,
+                            balance: data.balance || self.user.balance,
+                            invite_code: data.invited_code || self.user.invited_code
+                        }
 
-                        return
-                    }
-                    if(data){
-                        data.user.balance=data.balance;
-                        data.user.invited_code=data.invited_code;
+                    }));
 
-
-                    }
+                    self.$el.find("#picture").attr("src", self.user.avatar.avatar.url);
+                    self.hideLoading();
                 },
                 error: function (e) {
                     self.hideLoading();
@@ -393,48 +376,12 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
 
 
         onShow: function () {
-           self.GetData();
-
             self.setHeader();
             self.user=self.getCurrentUser();
-            self.$el.html(_.template(tplPersonal)({
+            self.GetData();
 
 
-                user: {
-                    nick_name: self.user.nick_name,
-                    cell: self.user.cell,
-                    avatar: self.user.avatar.avatar.url,
-                    balance:self.user.balance,
-                    invite_code:self.user.invite_code
-                }
 
-            }));
-            if (!self.iframeContent) {
-                var iframe = document.createElement("iframe");
-                iframe.width = "100%";
-                iframe.height ="0";
-                iframe.src = "./camera.html";
-                iframe.frameBorder = "0";
-                iframe.frameBorder = "no";
-                iframe.scrolling = "no";
-                iframe.border = "0";
-                if (navigator.userAgent.indexOf("MSIE") > -1 && !window.opera) {
-                    iframe.onreadystatechange = function() {
-                        if (iframe.readyState == "complete") {
-                            self.afterIframeLoad();
-                        }
-                    };
-                } else {
-                    iframe.onload = function() {
-                        self.afterIframeLoad();
-                    };
-                }
-                self.$el.append(iframe);
-                self.iframeContent = iframe;
-            }else{
-                self.hideLoading();
-            }
-            self.$el.find("#picture").attr("src",user.avatar.avatar.url);
 
         },
         //设置标题
