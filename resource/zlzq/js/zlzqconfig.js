@@ -13,6 +13,9 @@
 			'cRange': baseUrl + 'common/tools/cRange', //
 			'UITab':baseUrl + 'common/utils/ui.tab',
 			'cImageZoom':baseUrl + 'common/tools/cImageZoom',
+
+
+
 			//模版
 			'TplSchedule': baseUrl + 'templates/schedule.html',
 			'TplHouse': baseUrl + 'templates/house.html',
@@ -39,7 +42,9 @@
 			'TplNewsList':baseUrl + 'templates/newslist.html',
 			'TplNewsDetail':baseUrl + 'templates/newsdetail.html',
             'TplGetreward': baseUrl + 'templates/getinvitereward.html',
-            'TplSendinvite': baseUrl + 'templates/sendinvitecode.html'
+            'TplSendinvite': baseUrl + 'templates/sendinvitecode.html',
+			'TplAppointment': baseUrl + 'templates/appointment.html',
+			'TplVisitlist': baseUrl + 'templates/visitlist.html',
 	    }
 	};
 	config.urlArgs = "v=1";

@@ -104,6 +104,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             var currentBox = self.$el.find(".area-bar-box ");
             currentBox.removeClass("in");
             self.$el.find(".mask").removeClass("show");
+            self.$el.find(".area-bar-box").hide();
             document.removeEventListener('touchmove', self.preventDefault, false);
 
             self.search({district_id: target.data("id")}, function (data) {
@@ -117,7 +118,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             _.each(realties, function (v, i) {
                 (function (iid) {
                     var img = new Image();
-                    img.src = v.avatar;
+                    img.src = v.avatar?v.avatar:"./resource/zlzq/images/show2.png";
                     img.onload = function () {
                         var dom = document.getElementById(iid);
                         dom && (dom.src = img.src);
@@ -251,14 +252,15 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
                 lastBox.removeClass("in");
             }
 
-            currentBox.addClass("trans").toggleClass("in");
+            currentBox.addClass("non-trans").toggleClass("in");
             if (currentBox.hasClass("in")) {
+                currentBox.show();
                 self.$el.find(".mask").css("left", 0).addClass("show");
                 document.addEventListener('touchmove', self.preventDefault, false);
             } else {
                 self.$el.find(".mask").css("left", 0).removeClass("show");
                 document.removeEventListener('touchmove', self.preventDefault, false);
-
+                currentBox.hide();
             }
             self.lastFilter = target.data("key");
 
@@ -373,6 +375,27 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
                 }
             });
         },
+
+        //隐藏具体地址
+        addressHide:function(){
+            self.$el.find(".addr").each(function(){
+                var address=$.trim($(this).text());
+                var finadd=address;
+                var tes=/\d/
+                //alert(address);
+                if(address.charAt(address.length-1)=="室"){
+                    for(i=2;i<(address.length);i++){
+                        if(!tes.test(address.charAt(address.length-i))){
+                            finadd=address.substr(0,address.length-i+1);
+                            break;
+                        }
+                    }
+                }
+                $(this).text(finadd+"***");
+            })
+
+        },
+
         onShow: function () {
             $("#headerview").hide();
             self.getDistricts(function (districts) {
@@ -383,6 +406,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
                     self.$el.find(".house-list-box").html($(_.template(TplHList, {
                         list: data.realties
                     })));
+                    //self.addressHide();
                     self.lazyLoadImage(data.realties); 
                     self.$el.find(".mask").addClass("m-trans");
                     self.$el.find(".mask")[0].addEventListener("webkitTransitionEnd", function () {
@@ -477,6 +501,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
 
                 });
             });
+
         },
         setHeader: function (type) {
             self.header.set({

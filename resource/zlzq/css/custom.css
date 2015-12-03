@@ -1,8 +1,8 @@
 ﻿#loading{display:block}
 #loading.hideLoading{display: none}
 #loading .fadeIn{
-  -webkit-animation: fadeIn 300ms ease-in-out;
-  animation: fadeIn 300ms ease-in-out;
+   -webkit-animation: fadeIn 300ms ease-in-out;
+	animation: fadeIn 300ms ease-in-out;
 }
 #loading  .fadeOut{
   -webkit-animation: fadeOut 300ms ease-in-out forwards;
@@ -34,7 +34,7 @@
   -webkit-animation: std_loading 1.58s linear infinite;
   -moz-animation: std_loading 1.58s linear infinite;
   -ms-animation: std_loading 1.58s linear infinite;
-  animation: std_loading 1.58s linear infinite;
+   animation: std_loading 1.58s linear infinite;
 }
 @-webkit-keyframes std_loading{0%{opacity:1;;-webkit-transform:rotate(0deg);;}100%{opacity:1;;-webkit-transform:rotate(360deg);}}
 @-moz-keyframes std_loading{0%{opacity:1;-moz-transform:rotate(0deg)}100%{opacity:1;-moz-transform:rotate(360deg)}}
@@ -85,13 +85,13 @@
 }
 
 .formula span {
-  display: inline-block;
-  width: 33.3%;
-  line-height: 40px;
-  text-align: center;
+    display: inline-block;
+    width: 33.3%;
+    line-height: 40px;
+    text-align: center;
 }
 ::-webkit-inner-spin-button {
-  -webkit-appearance: none; /* 上下小箭头按钮，你丫太丑了，滚粗，负分 */
+    -webkit-appearance: none; /* 上下小箭头按钮，你丫太丑了，滚粗，负分 */
 }
 .buy_step_2 .frm_get_code{padding-top:0; padding-right:15px!important; border-bottom:1px solid #d8d8d8;}
 
@@ -140,12 +140,12 @@
 }
 
 .top_more.right::before {
-  background-image: url(../images/header01.png);
-  background-size: 300px auto;
-  background-position: -269px;
-  width: 32px;
-  height: 30px;
-}
+   /*background-image: url(../images/header01.png);*/
+   background-size: 300px auto;
+   background-position: -269px;
+   width: 32px;
+   height: 30px;
+ }
 .top_more.edit::before {
   background-image: url(../images/edit.png);
   background-size: 22px;
@@ -155,11 +155,11 @@
 }
 
 .top_more.left::before {
-  background-image: url(../images/header01.png);
-  background-size: 300px auto;
-  background-position: 5px;
-  width: 32px;
-  height: 30px;
+/*background-image: url(../images/header01.png);*/
+background-size: 300px auto;
+background-position: 5px;
+width: 32px;
+height: 30px;
 }
 
 .js_title{
@@ -200,13 +200,13 @@
 .rent {
 }
 .favourite{
-  background-position: 0 -139px;
-}
+ background-position: 0 -139px;
+ }
 .calendar{
-  background-position: 0 -273px;
-}
+background-position: 0 -273px;
+ }
 .mine{
-  background-position: 0 -410px;
+background-position: 0 -410px;
 }
 .topbar{
   position: absolute;
@@ -527,7 +527,7 @@
   width: 106px;
   background-color: #f5f5f5;
   border-right: 1px solid transparent;
-  position: absolute;
+ position: absolute;
 }
 .left-column li {
   position: relative;
@@ -618,6 +618,7 @@
   transform:translate(0,-100%);
   -webkit-transform: translate(0,-100%);
   top: 75px;
+  display: none;
 }
 .area-bar-box{
   bottom: 0;
@@ -870,16 +871,16 @@
   width: 100%;
 }
 .s-list li span  .icon {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  background-image: url(../images/s_list.png);
-  left: -8px;
-  top: 10px;
-  background-size: 240px;
-  background-repeat: no-repeat;
-}
+   display: inline-block;
+   width: 20px;
+   height: 20px;
+   position: absolute;
+   background-image: url(../images/s_list.png);
+   left: -8px;
+   top: 10px;
+   background-size: 240px;
+   background-repeat: no-repeat;
+ }
 .s-list li span  .icon.tv {
   background-position: -76px 0;
 }
@@ -897,7 +898,7 @@
 }
 .s-list li span  .icon.wardrobe {
   background-position: -152px -23px;
-}
+ }
 .s-list li span  .icon.fridge {
   background-position: -228px -23px;
 }
@@ -1120,10 +1121,10 @@
   margin-top: 10px;
 }
 .subscribe-bar input{
-  background: #f5f5f5;
+  /*background: #f5f5f5;*/
   height: 42px;
   border:solid 1px #E6E6E6;
-  width: 100%;
+  /*width: 100%;*/
   padding: 0 15px;
   background: #fff;
 }
@@ -1210,7 +1211,7 @@
 }
 .plugin_date .cui-roller-btns .cui-btns-ok{
   color: #ff6c10;
-}
+ }
 
 .plugin_date .cui-roller-btns .cui-btns-cancel {
   float: left
@@ -1353,9 +1354,9 @@
 .opt-list >li .icon.favorites {
   background-position: 0 -130px;
 }
-.applybtn{
-  float: right;
-  margin-right: 10px;
+ .applybtn{
+    float: right;
+    margin-right: 10px;
 }
 .opt-list >li .icon.comment {
   background-position: 0 -186px;
@@ -1420,8 +1421,8 @@
   top: 2px;
 }
 .personal .opt-list{
-  padding-left: 20px;
-}
+   padding-left: 20px;
+ }
 .personal .opt-list >li .arrow{
   top: 2px;
 }
@@ -1676,7 +1677,7 @@
     -webkit-transform: translate(100%, 0);
     -ms-transform: translate(100%, 0);
     transform: translate(100%, 0);
-    height: 0;
+     height: 0;
   }
 }
 
@@ -1696,7 +1697,7 @@
 }
 
 .contract-box .c-party .c-item{
-  border-bottom: solid 1px #eee;
+ border-bottom: solid 1px #eee;
 }
 .contract-box .c-item span{
   float: right;
@@ -1849,7 +1850,7 @@
   background: #fff;
 }
 .product-detail .tel>div:first-child{
-  border-bottom: solid 1px #eee;
+   border-bottom: solid 1px #eee;
 }
 .product-detail .tel .box {
   margin-left: 80px;
@@ -1974,17 +1975,16 @@
   overflow: hidden;
 }
 
+.looktime .cui-flex2{
+  display: none;
+}
+
 .month .cui-roller .cui-roller-bd{
   display: none;
 }
 
 .month .cui-roller .cui-roller-bd:last-child{
   display: block;
-}
-
-#main{
-  width: 100%;
-  overflow-x: hidden;
 }
 
 /*以下是弹出确认框*/
@@ -2082,7 +2082,466 @@
     /*margin: 200px auto;*/
   }
 }
+/*以上是弹出确认框*/
 
+/*以下是移植房东端标签*/
+.form-dl dt{
+  padding: 0 15px;
+  margin-top: -10px;
+  line-height: 35px;
+  font-size: 14px;
+  color: #737478;
+}
+.form-dl dd{
+  margin-bottom: 15px;
+  padding: 0 15px;
+  background-color: #fff;
+  border-top:1px solid #E7E7E7;
+  border-bottom:1px solid #E7E7E7;
+}
+.form-dl dd textarea,.form-dl dd div{
+  padding: 15px 0;
+  width: 100%;
+  height: 40px;
+  font-size: 14px;
+  line-height: 20px;
+  border:none;
+  outline: none;
+}
+.form-dl dd textarea{
+  color: #A9AAAC;
+  resize:vertical;
+}
+.form-dl dd div{
+  height: auto;
+  min-height: 40px;
+}
+.icon-radiolist{
+  padding: 8px 0;
+  overflow: hidden;
+}
+.icon-radiolist li{
+  float: left;
+}
+.icon-radiolist li label{
+  display: block;
+  padding: 10px 0;
+  width: 90px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.icon-radiolist .icon-radio{
+  vertical-align: top;
+  float: left;
+  width: 18px;
+  height: 18px;
+  background: url(../img/unselect.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-radio{
+  background: url(../img/selected.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist .icon-radio.unvisi{
+  background: none;
+}
+.icon-radiolist .icon-img{
+  margin: 0 5px;
+  float: left;
+  width: 18px;
+  height: 18px;
+}
+.icon-radiolist .icon-chair{
+  background: url(../img/chair.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist .icon-teapoy{
+  background: url(../img/teapoy.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist .icon-sofa{
+  background: url(../img/sofa.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist .icon-bed{
+  background: url(../img/bed.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist .icon-wardboard{
+  background: url(../img/wardboard.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist .icon-table{
+  background: url(../img/table.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist .icon-tvbench{
+  background: url(../img/tvbench.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist .icon-bookcase{
+  background: url(../img/bookcase.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist .icon-tv{
+  background: url(../img/tv.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist .icon-heater{
+  background: url(../img/heater.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist .icon-refriger{
+  background: url(../img/refriger.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist .icon-aircon{
+  background: url(../img/aircon.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist .icon-microwave{
+  background: url(../img/microwave.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist .icon-washer{
+  background: url(../img/washer.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist .icon-fan{
+  background: url(../img/fan.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist .icon-computer{
+  background: url(../img/computer.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-chair,
+.icon-radiolist .on .icon-chair{
+  background: url(../img/chairon.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-teapoy,
+.icon-radiolist .on .icon-teapoy{
+  background: url(../img/teapoyon.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-sofa,
+.icon-radiolist .on .icon-sofa{
+  background: url(../img/sofaon.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-bed,
+.icon-radiolist .on .icon-bed{
+  background: url(../img/bedon.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-wardboard,
+.icon-radiolist .on .icon-wardboard{
+  background: url(../img/wardboardon.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-table,
+.icon-radiolist .on .icon-table{
+  background: url(../img/tableon.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-tvbench,
+.icon-radiolist .on .icon-tvbench{
+  background: url(../img/tvbenchon.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-bookcase,
+.icon-radiolist .on .icon-bookcase{
+  background: url(../img/bookcaseon.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-tv,
+.icon-radiolist .on .icon-tv{
+  background: url(../img/tvon.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-heater,
+.icon-radiolist .on .icon-heater{
+  background: url(../img/heateron.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-refriger,
+.icon-radiolist .on .icon-refriger{
+  background: url(../img/refrigeron.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-aircon,
+.icon-radiolist .on .icon-aircon{
+  background: url(../img/airconon.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-microwave,
+.icon-radiolist .on .icon-microwave{
+  background: url(../img/microwaveon.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-washer,
+.icon-radiolist .on .icon-washer{
+  background: url(../img/washeron.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-fan,
+.icon-radiolist .on .icon-fan{
+  background: url(../img/fanon.png) no-repeat center;
+  background-size: 18px 18px;
+}
+.icon-radiolist input[type="checkbox"]:checked + label .icon-computer,
+.icon-radiolist .on .icon-computer{
+  background: url(../img/computeron.png) no-repeat center;
+  background-size: 18px 18px;
+}
+
+.icon-radiolist li label span{
+  vertical-align: top;
+  display: inline-block;
+  height: 18px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #242834;
+}
+.icon-radiolist input[type="checkbox"]:checked + label span,
+.icon-radiolist .on span{
+  color: #FF7300;
+}
+dd.pic-input{
+  padding: 15px;
+}
+.pic-input p{
+  margin-top: 5px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #737478;
+}
+.form-dl dd .pic-block{
+  padding: 0;
+  overflow: hidden;
+}
+.pic-label{
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 100px;
+  height: 100px;
+  background: url(../img/imgbg.png) no-repeat center;
+  background-size: 100px 100px;
+}
+.pic-label img{
+  width: 100px;
+  height: 100px;
+  border: none;
+}
+.label-list{
+  padding: 8px 0;
+  overflow: hidden;
+}
+.label-list li{
+  float: left;
+}
+.label-list li label{
+  display: block;
+  margin: 6px 12px 6px 0;
+  padding: 6px 0;
+  width: 80px;
+  color: #737478;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #A6A9AE;
+  border-radius: 3px;
+}
+.label-list input[type="checkbox"]:checked + label,
+.label-list label.on{
+  color: #FF7300;
+  border: 1px solid #FF7300;
+}
+
+
+.nav{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  background-color: #FF6C10;
+  z-index: 3;
+}
+.nav a{
+  position: absolute;
+  display: block;
+  top: 0;
+  height: 40px;
+  float: left;
+  z-index: 2;
+}
+.nav .back{
+  left: 2px;
+  width: 40px;
+  background: url(../img/back.png) no-repeat center;
+  background-size: 25px 25px;
+}
+.nav .next{
+  right: 2px;
+  width: 60px;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+}
+.nav .del{
+  /*right: 2px;*/
+  right: 40px;
+  width: 60px;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  /*border-right: 1px solid #fff;*/
+}
+.nav h1 {
+  padding: 0 62px;
+  line-height: 40px;
+  height: 40px;
+  color: #fff;
+  font-weight: normal;
+  font-size: 18px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.panzoom{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .8);
+  -webkit-animation: fadeIn 300ms ease-in-out;
+  display: none;
+}
+
+.panzoom .zoom-area {
+  height: 100%;
+  width: 100%;
+}
+
+
+.indexButton{
+  margin-top: 15px;
+  width: 100%;
+  text-align: center;
+  z-index: 4000;
+}
+.indexButton div{
+  display: inline-block;
+  margin:0 1%;
+  width: 60px;
+}
+.indexButton div .icon{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+.indexButton div .iconPad{
+  width: 50px;
+  height: 50px;
+
+}
+.indexButton div .iconHouse{
+  width: 50px;
+  height: 50px;
+}
+.indexButton div .iconBrush{
+  width: 50px;
+  height: 50px;
+}
+.indexButton div .iconNews{
+  width: 50px;
+  height: 50px;
+}
+.indexButton div span{
+  display: block;
+  margin-top: 7px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #232736;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
+
+.succeed-appoint {
+  margin: 30px 10px;
+}
+.succeed-appoint .mes{
+  margin: 10px 0;
+  text-align:center;
+  font-size: 25px;
+  color: #ff6c10;
+}
+.succeed-appoint .avatar{
+  width: 75px;
+  height: 75px;
+  /*text-align:center;*/
+  padding-top: 20px;
+  display:block;
+  margin:0 auto;
+}
+.succeed-appoint .name{
+  margin: 10px 0;
+  text-align:center;
+  font-size: 20px;
+}
+.succeed-appoint .dial a div{
+  text-align:center;
+  margin: 20px 25px;
+  padding: 10px 20px;
+  background: #ff6c10;
+  border-radius:4px;
+  font-size: 20px;
+  color: white;
+}
+.succeed-appoint .watchlist{
+  text-align:center;
+  margin: 10px 25px;
+  padding: 10px 20px;
+  /*background: #ff6c10;*/
+  border:1px solid #ff6c10;
+  border-radius:4px;
+  font-size: 20px;
+  color: #ff6c10;
+}
+
+.visit-list{ background: #fff;}
+.visit-list ul{ margin: 0 0 0 8px;}
+.visit-list li{ border-bottom: 1px solid #e4e4e4; padding: 10px 0;}
+
+.visit-list .user-data { margin-left: 30px; display: flex }
+.visit-list .head{
+  /*float: left;*/
+  width: 50px;height: 50px}
+.visit-list .user-data p {line-height: 25px; margin-left: 15px;font-size: 18px;color: #898a8b}
+/*.visit-list .ce-ico{ float: right;}*/
+.visit-list .ce-ico{margin: auto 15px auto auto;}
+.visit-list .ce-ico img{width: 30px;height: 30px}
+
+.visit-list .house-data{ display: flex; padding: 8px 0; color: #000; overflow: hidden;}
+.visit-list .select {float: left;width: 25px;height: 25px;margin: auto 1px auto 5px;padding: 20px 0 }
+.visit-list .img{ position: relative; float: left; margin-right: 8px; width: 100px; height: 75px; }
+.visit-list .img img{ width: 100%; height: 100%; border: solid 1px #E5DDC2; border-radius: 3px;}
+.visit-list .txt{overflow: hidden;width: auto ;margin: 1px;width: 50%}
+.visit-list .monthly em{ font-size: 18px;}
+.visit-list .goto{float: right;width: 20px;height: 40px;margin: auto 1px auto auto;padding: 20px 0}
+.visit-list .txt p{line-height: 20px;color: #898a8b}
+.visit-list .txt .monthly{line-height: 30px;color: #ff6c10 }
+.visit-list .looktime{margin-left: 30px;font-size: 18px;color: #898a8b }
+
+/*ios版图片处理*/
 #choose-box{
   position: relative;
 }

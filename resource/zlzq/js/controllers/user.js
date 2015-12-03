@@ -19,6 +19,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             "click .opt-list .invite":"togetreward",
             "click .opt-list .to_apply":"toApply",
             "click .opt-list .to_send":"toSend",
+            "click .sign":"toSign",
             "click .ver":"askUpdte",
             "click .cd-popup":"toCancel",
             "click .cd-no":"toCancel",
@@ -41,9 +42,33 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             Lizard.goTo("sendinvitecode.html");
 
         },
+
+        toSign:function(){
+            var url=Lizard.host+Lizard.apiUrl+"users/"+self.getCurrentUser().id+"/checkins"
+            $.ajax({
+                url: url,
+                dataType: "json",
+                type: "post",
+                data:{auth_token:self.getCurrentUser().token},
+                success: function (data) {
+                    if (data.error) {
+                        self.showMyToast(data.error.message, 1000);
+                        return
+                    }
+                    else {
+                        self.showMyToast(data.message, 2000);
+                    }
+                },
+                error: function (e) {
+                    self.showMyToast(e.error, 1000);
+
+                }
+            })
+        },
+
         toUpdate:function(){
-            self.showMyToast("正在下载更新程序", 1000);
-            if (!self.iframeContent) {
+            //self.showMyToast("正在下载更新程序", 1000);
+            //if (!self.iframeContent) {
                 var iframe = document.createElement("iframe");
                 iframe.width = "100%";
                 iframe.height ="0";
@@ -65,9 +90,9 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
                 }
                 self.$el.append(iframe);
                 self.iframeContent = iframe;
-            }else{
-                self.hideLoading();
-            }
+            //}else{
+            //    self.hideLoading();
+            //}
         },
 
         afterIframeLoad:function() {
@@ -124,6 +149,10 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
                     else{
                         self.getver=data.number;
                         self.appurl=data.url;
+                        if(self.getver!=Lizard.version){
+                            self.$el.find("#ver").append("<em style='color: #ff0000'>(有更新)</em>");
+                            self.$el.find(".ver").addClass("new");
+                        }
                     }
                 },
                 error: function (e) {
@@ -169,9 +198,6 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
                 Lizard.goTo("getinvitereward.html");
 
             },
-        toOrderList:function(){
-            Lizard.goTo("orderlist.html");
-        },
 
         toMyScore:function(e){
             Lizard.goTo("myScore.html");
@@ -212,10 +238,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             $("#headerview").hide();
             self.$el.html(_.template(tplUser)({user: this.getCurrentUser(),ver:Lizard.version}));
             self.checkUpdate();
-            if(self.getver!=Lizard.version){
-                self.$el.find("#ver").append("<em style='color: #ff0000'>(有更新)</em>");
-                self.$el.find(".ver").addClass("new");
-            }
+
             self.hideLoading();
 
         },
@@ -242,8 +265,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
                         data.user.pwd = self.getCurrentUser().pwd;
                         self.setLoginStatus({isLogin: true, user: data.user, token: data.token});
 
-                        //Lizard.goTo("personal.html");
-                        window.location.href="personal.html";
+                        Lizard.goTo("personal.html");
+                        //window.location.href="personal.html";
 
                     }
 

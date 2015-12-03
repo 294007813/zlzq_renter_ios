@@ -29,6 +29,15 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             self.showMyToast('网络错误，请重试', 2000);
         },
 
+        getLooktime:function(){
+            var today=new Date();
+            var thatday=new Date();
+            var days=[],times=["全天","上午","下午","晚上"];
+            for(i=0;i<6;i++){
+                thatday.setDate(today.getDate()+i+1);
+                days.push(thatday.months+"月"+thatday.days+"日"+"周");
+            }
+        },
 
         getDate:function(){
             var d1 = [];
@@ -86,6 +95,11 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
                 this.showMyToast("请选择月数", 1000);
                 return;
             }
+            var looktime = $.trim(this.$el.find(".lookT").val());
+            if(!looktime){
+                this.showMyToast("请选择约看时间", 1000);
+                return;
+            }
             var phonedata = $.trim(this.$el.find(".phone").val());
             if(!/^(1[3-8][0-9])\d{8}$/.test(phonedata)){
                 this.showMyToast("请填写正确的联系方式", 1000);
@@ -114,6 +128,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
              self.$el.html(TplMyorder);
         },
         onShow: function () {
+            self.getLooktime();
             self.setHeader();
             self.$el.find(".phone").val(self.getCurrentUser().cell);//手机号默认值
             var d1 = this.getDate(), initData = [d1, d1[0].months, d1[0].months[0].days], initIndex = [0, 0, 0];
@@ -183,7 +198,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
         //设置标题
         setHeader: function () {
             self.header.set({
-                title: '我的订单',
+                title: '约看订单',
                 back: true,
                 backtext: '<i class="icon-back "></i> ',
                 view: this,

@@ -1,8 +1,8 @@
  define('cImageZoom',function(){
   $.fn.fancyzoom = function(userOptions) {
         var oOverlay = $('<div>').css({
-            height: '500%',
-            width: '500%',
+            height: '100%',
+            width: '100%',
             position: 'fixed',
             zIndex: 100,
             left: 0,
@@ -12,14 +12,15 @@
         function openZoomBox(imgSrc, o) {
             if (o.showoverlay) {
                 oOverlay.appendTo('body').click(function() {
-                    closeZoomBox(o)
-                }
+                        imgSrc.show();
+                        closeZoomBox(o)
+                    }
                 );
                 if ($.browser.msie && $.browser.version < 7) {
                     oOverlay.css({
                         position: 'absolute',
-                        height: $(document).height()*5,
-                        width: $(document).width()*5
+                        height: $(document).height(),
+                        width: $(document).width()
                     })
                 }
             }
@@ -28,8 +29,8 @@
             o = $.extend(o, {
                 imgSrc: imgSrc,
                 dimOri: {
-                    width: imgSrc.width()*5,
-                    height: imgSrc.height()*5,
+                    width: imgSrc.width(),
+                    height: imgSrc.height(),
                     left: pos.left,
                     top: pos.top,
                     'opacity': 1
@@ -67,6 +68,40 @@
                     o.oImgClose.show();
                     $('div', oImgZoomBox).show()
                 }
+
+                    var iframe = document.createElement("iframe");
+
+                    iframe.id="panzoom";
+                    iframe.width = "100%";
+                    iframe.height ="100%";
+                    iframe.src = "./panzoom.html";
+                    iframe.frameBorder = "0";
+                    iframe.frameBorder = "no";
+                    iframe.scrolling = "no";
+                    iframe.border = "0";
+                    iframe.style.position="fixed";
+                    iframe.style.top="0px";
+                    iframe.style.zIndex="1022";
+                    $("#headerview").css("zIndex","101");
+
+                    $("body").append(iframe);
+
+                    iframe.onload = function() {
+                        imgSrc.hide();
+                        iframe.contentWindow.panzoom(oOverlay,oImgZoomBox,imgSrc[0].src,function(){
+                            var panzoom = $("#panzoom");
+                            if (!panzoom.length) {
+                                closeZoomBox(o)
+                                return
+                            };
+                            panzoom[0].parentNode.removeChild(panzoom[0]);
+                            closeZoomBox(o);
+                            imgSrc.show();
+
+                        });
+
+                    };
+
             }
             ;
             $('div', oImgZoomBox).hide();
@@ -76,7 +111,7 @@
                 })
             }
             var oImgDisplay = $('img:first-child', oImgZoomBox).css({
-                'width': '300%',
+                'width': '100%',
                 'height': 'auto'
             });
             if (o.Speed > 0) {
@@ -168,9 +203,9 @@
                 opacity: opts.overlay,
                 background: opts.overlayColor
             });
-            if (!/\.jpg|\.jpeg|\.png|\.gif/i.test(imgTargetSrc)) {
-                return true
-            }
+            //if (!/\.jpg|\.jpeg|\.png|\.gif/i.test(imgTargetSrc)) {
+            //    return true
+            //}
             $this.click(function() {
                 var zoomOpened = $('div.jqfancyzoombox');
                 if (zoomOpened.length > 0) {
@@ -339,9 +374,8 @@
             )
         }
         )
-    }
-    ;
-    $.fn.fancyzoom.defaultsOptions = {
+    };
+  $.fn.fancyzoom.defaultsOptions = {
         overlayColor: '#000',
         overlay: 1,
         imagezindex: 100,

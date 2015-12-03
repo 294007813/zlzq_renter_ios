@@ -323,7 +323,7 @@
     <li>
         <span class="info_name">地址</span>
         <%if(realty.address!=null){%>
-        <span><%=realty.address%></span>
+        <span class="addr"><%=realty.address%></span>
         <%}%>
         <span id="map" style="float:right;width: 20%;color:#ff6600">地图</span>
     </li>
@@ -399,75 +399,183 @@
      </li>
  </ul>
 
- <ul class="info_list info_ct ">
-     <li class="devices">
-         <span class="info_name" id="device">配套设施</span>
-         <!--<%if(realty.house_device_id!=null){%>-->
-         <!--<span><%=realty.house_device_id%></span>-->
+ <!--<ul class="info_list info_ct ">-->
+     <!--<li class="devices">-->
+         <!--<span class="info_name" id="device">配套设施</span>-->
+         <!--&lt;!&ndash;<%if(realty.house_device_id!=null){%>&ndash;&gt;-->
+         <!--&lt;!&ndash;<span><%=realty.house_device_id%></span>&ndash;&gt;-->
+         <!--&lt;!&ndash;<%}%>&ndash;&gt;-->
+     <!--</li>-->
+ <!--</ul>-->
+
+ <!--<ul class="info_list info_ct">-->
+     <!--<li>-->
+         <!--<span class="info_name">房源描述</span>-->
+         <!--<%if(realty.description!=null){%>-->
+         <!--<span><%=realty.description%></span>-->
          <!--<%}%>-->
-     </li>
- </ul>
- <ul class="info_list info_ct">
-     <li>
-         <span class="info_name">房源描述</span>
-         <%if(realty.description!=null){%>
-         <span><%=realty.description%></span>
-         <%}%>
-     </li>
- </ul>
-     <!--<li class="info_labels">
-         <div class="info_label_item"><i class="icon icon-web"></i>宽带</div>
-         <div class="info_label_item"><i class="icon icon-tv"></i>电视</div>
-         <div class="info_label_item"><i class="icon icon-sofa"></i>沙发</div>
-         <div class="info_label_item"><i class="icon icon-wash"></i>洗衣机</div>
-         <div class="info_label_item"><i class="icon icon-aircon"></i>空调</div>
-         <div class="info_label_item"><i class="icon icon-bed"></i>床</div>
-         <div class="info_label_item info_un"><i class="icon icon-board"></i>衣柜</div>
-         <div class="info_label_item"><i class="icon icon-fridge"></i>冰箱</div>
-         <div class="info_label_item"><i class="icon icon-shower"></i>淋浴</div>
-         <div class="info_label_item"><i class="icon icon-heater"></i>暖气</div>
-     </li>-->
+     <!--</li>-->
+ <!--</ul>-->
 
+<% var device=realty.house_device.house_device  %>
+<div style="margin-top: 10px"></div>
+<dl class="form-dl">
+    <dt>家具</dt>
+    <dd>
+        <ul class="icon-radiolist">
+            <li>
+                <label class="<%=device.chair ?'on':''%>">
+                    <i class="icon icon-radio unvisi"></i>
+                    <i class="icon icon-img icon-chair"></i>
+                    <span>椅子</span>
+                </label>
+            </li>
+            <li>
+                <label class="<%=device.teapoy ?'on':''%>">
+                    <i class="icon icon-radio unvisi"></i>
+                    <i class="icon icon-img icon-teapoy"></i>
+                    <span>茶几</span>
+                </label>
+            </li>
+            <li>
+                <label class="<%=device.sofa ?'on':''%>">
+                    <i class="icon icon-radio unvisi"></i>
+                    <i class="icon icon-img icon-sofa"></i>
+                    <span>沙发</span>
+                </label>
+            </li>
+            <li>
+                <label class="<%=device.bed ?'on':''%>">
+                    <i class="icon icon-radio unvisi"></i>
+                    <i class="icon icon-img icon-bed"></i>
+                    <span>床</span>
+                </label>
+            </li>
+            <li>
+                <label class="<%=device.chest ?'on':''%>">
+                    <i class="icon icon-radio unvisi"></i>
+                    <i class="icon icon-img icon-wardboard"></i>
+                    <span>衣柜</span>
+                </label>
+            </li>
+            <li>
+                <label class="<%=device.table ?'on':''%>">
+                    <i class="icon icon-radio unvisi"></i>
+                    <i class="icon icon-img icon-table"></i>
+                    <span>餐桌</span>
+                </label>
+            </li>
+            <li>
+                <label class="<%=device.tv_stand ?'on':''%>">
+                    <i class="icon icon-radio unvisi"></i>
+                    <i class="icon icon-img icon-tvbench"></i>
+                    <span>电视柜</span>
+                </label>
+            </li>
+            <li>
+                <label class="<%=device.bookcase ?'on':''%>">
+                    <i class="icon icon-radio unvisi"></i>
+                    <i class="icon icon-img icon-bookcase"></i>
+                    <span>书柜</span>
+                </label>
+            </li>
+        </ul>
+    </dd>
+</dl>
+<dl class="form-dl">
+    <dt>家电</dt>
+    <dd>
+        <ul class="icon-radiolist">
+            <li>
+                <label class="<%=device.tv ?'on':''%>">
+                    <i class="icon icon-radio unvisi"></i>
+                    <i class="icon icon-img icon-tv"></i>
+                    <span>电视</span>
+                </label>
+            </li>
+            <li>
+                <label class="<%=device.water_heater ?'on':''%>">
+                    <i class="icon icon-radio unvisi"></i>
+                    <i class="icon icon-img icon-heater"></i>
+                    <span>热水器</span>
+                </label>
+            </li>
+            <li>
+                <label class="<%=device.refrigerator ?'on':''%>">
+                    <i class="icon icon-radio unvisi"></i>
+                    <i class="icon icon-img icon-refriger"></i>
+                    <span>冰箱</span>
+                </label>
+            </li>
+            <li>
+                <label class="<%=device.air_condition ?'on':''%>">
+                    <i class="icon icon-radio unvisi"></i>
+                    <i class="icon icon-img icon-aircon"></i>
+                    <span>空调</span>
+                </label>
+            </li>
+            <li>
+                <label class="<%=device.hearth ?'on':''%>">
+                    <i class="icon icon-radio unvisi"></i>
+                    <i class="icon icon-img icon-microwave"></i>
+                    <span>微波炉</span>
+                </label>
+            </li>
+            <li>
+                <label class="<%=device.washer ?'on':''%>">
+                    <i class="icon icon-radio unvisi"></i>
+                    <i class="icon icon-img icon-washer"></i>
+                    <span>洗衣机</span>
+                </label>
+            </li>
+            <li>
+                <label class="<%=device.fan ?'on':''%>">
+                    <i class="icon icon-radio unvisi"></i>
+                    <i class="icon icon-img icon-fan"></i>
+                    <span>电风扇</span>
+                </label>
+            </li>
+            <li>
+                <label class="<%=device.pc ?'on':''%>">
+                    <i class="icon icon-radio unvisi"></i>
+                    <i class="icon icon-img icon-computer"></i>
+                    <span>电脑</span>
+                </label>
+            </li>
+        </ul>
+    </dd>
+</dl>
 
-<!--<ul class="info_list info_ct">
-    <li>租客评论（3）<i class="icon-right"></i></li>
-    <li class="info-comment">
-        <img class="radiu-avatar" src="./resource/zlzq/images/default_photos.png" />
-        <div class="comment-content">
-            <div class="comment-title">
-                <p class="comment_user">千千</p>
-                <div class="score-block">
-                    <div class="comment_score"></div>
-                    <i class="comment_scorein" width="80%"></i>
-                </div>
-            </div>
-            <p class="comment_tip">5分钟前</p>
-            <p class="comment_text">房子环境还是不错的，家具有点旧了，但房东阿姨很好！</p>
-        </div>
-    </li>
-</ul>-->
+<dl class="form-dl">
+    <dt>标签</dt>
+    <dd>
+        <ul class="label-list">
+            <li>
+                <label class="<%=device.good_traffic ?'on':''%>">交通方便</label>
+            </li>
+            <li>
+                <label class="<%=device.garden ?'on':''%>">带花园</label>
+            </li>
+            <li>
+                <label class="<%=device.subway ?'on':''%>">地铁</label>
+            </li>
+            <li>
+                <label class="<%=device.lift ?'on':''%>">电梯</label>
+            </li>
+            <li>
+                <label class="<%=device.villa ?'on':''%>">别墅</label>
+            </li>
+            <li>
+                <label class="<%=device.standalone ?'on':''%>">复式</label>
+            </li>
+        </ul>
+    </dd>
+</dl>
 
-<!--<ul class="info_list info_ct">-->
-
-<!--<ul class="info_list reserve_ct" style="display: none">
-    <li style="height: 100px;">
-        <a style="width: 100px; display: block; border-radius: 100px; overflow: hidden;height: 100px; margin: auto"><img src="<%=realty.owner.avatar%>"  style="width: 100%"/>  </a>
-    </li>
-    <li style="text-align: center">
-        <span class="info_name">房东昵称：</span>
-        <span><%=realty.owner.nick_name%></span>
-    </li>
-    <li  style="text-align: center" class="reserve">
-        <a  class="btn" href="tel:<%=realty.owner.cell%>">预约看房</a>
-    </li>
-</ul>-->
 
 <div class="info_btnarea">
-    <a  class="btn" >我要下单</a>
+    <a  class="btn" >我要约看</a>
 </div>
-<!--<div class="info_btnarea">
-    <a  class="btn grey" href="tel:<%=realty.owner.cell%>">已加入看房清单</a>
-</div>-->
 
 
 

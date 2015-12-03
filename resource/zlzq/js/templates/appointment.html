@@ -1,0 +1,50 @@
+<style>
+
+</style>
+
+<div class="nav">
+    <a class="back" href="#"></a>
+    <h1>约看订单</h1>
+    <a class="next" href="#">提交</a>
+</div>
+
+<div class="subscribe-bar" style="position: absolute;width: 100%;">
+    <div class="label">*联系人</div>
+    <div style="position:relative;">
+        <input type="text"  placeholder="" class="monthC" style="float: left;width: 48%">
+        <div style="float: right;width: 50%;margin-top: 10px">
+            <div class="male" style="float: left;">
+                <img src="resource/zlzq/img/unselect.png"style="width: 20px;height: 20px">
+                <span style="font-size: 25px;">先生</span>
+            </div>
+            <div class="female" style="float: right;width: 50%">
+                <img src="resource/zlzq/img/unselect.png"style="width: 20px;height: 20px">
+                <span style="font-size: 25px">女士</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="subscribe-bar" style="position: absolute;top: 80px;width: 100%;">
+    <div class="label">*看房时段</div>
+    <div style="position:relative">
+        <div style="position:absolute;left:0;top:0;bottom:0;width:100%;"  class="lookT-mask"></div>
+        <input type="text"  placeholder="点击选择您约看时间" class="lookT" >
+    </div>
+</div>
+
+<!--<i class="icon"></i>-->
+<div class="succeed-appoint" style="display: none">
+    <div class="mes">预约看房已经成功提交</div>
+    <div class="mes"><span class="ownertype"></span>将电话联系您</div>
+    <%if(data.owner_avatar.avatar.url!=null){%>
+    <img  class="avatar" src="<%=data.owner_avatar.avatar.url%>">
+    <%}else{%>
+    <img  class="avatar" src="./resource/zlzq/images/myheader.png">
+    <%}%>
+    <div class="name"><%=data.owner_nick_name%>(<span class="ownertype"></span>)</div>
+    <div class="dial">
+        <a href="tel:<%=data.owner_cell%>"><div>电话联系<span class="ownertype"></span></div></a>
+    </div>
+    <div class="watchlist">查看约看清单</div>
+</div>
