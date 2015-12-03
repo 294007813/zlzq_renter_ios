@@ -11,7 +11,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
             "click .house_icon":"toFavourite",
             //"click .info_btnarea":"toFavourite"
             "click .info_btnarea .btn":"toMyorder",
-            "click #qrcode":"toDownload"
+            //"click #qrcode":"toDownload"
         },
 
         toDownload: function(){
