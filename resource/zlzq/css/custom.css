@@ -618,7 +618,7 @@ background-position: 0 -410px;
   left: 0;
   transform:translate(0,-100%);
   -webkit-transform: translate(0,-100%);
-  top: 75px;
+  top: 95px;
   display: none;
 }
 .area-bar-box{
@@ -1457,11 +1457,13 @@ background-position: 0 -410px;
 }
 
 .personal.pwd-active  .info-box,.personal.name-active  .info-box,.personal.gender-active  .info-box,.personal.tel-active  .info-box{
+  display: none;
   -webkit-transform: translate(-100%,0);
   -ms-transform: translate(-100%,0);
   transform: translate(-100%,0);
 }
 .personal.pwd-active  .pwd_box,.personal.name-active .name-box,.personal.gender-active .gender-box,.personal.tel-active .tel-box{
+  display: inline;
   -webkit-transform: translate(0%,0);
   -ms-transform: translate(0%,0);
   transform: translate(0%,0);
