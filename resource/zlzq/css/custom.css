@@ -1955,6 +1955,7 @@ background-position: 0 -410px;
   top: 0;
   left: 0;
   width: 100%;
+  display: none;
 }
 .login .get-pwd-box{
   -webkit-transform: translate(100%, 0);
@@ -1962,11 +1963,13 @@ background-position: 0 -410px;
   transform: translate(100%, 0);
 }
 .login.get-pwd .get-pwd-box{
+  display: inline;
   -webkit-transform: translate(0%, 0);
   -ms-transform: translate(0%, 0);
   transform: translate(0%, 0);
 }
 .login.get-pwd #login{
+  display: none;
   -webkit-transform: translate(-100%, 0);
   -ms-transform: translate(-100%, 0);
   transform: translate(-100%, 0);
