@@ -15,7 +15,8 @@ body { line-height:18px;color:#333;/*background: #EEE*/}
 #headerview .abs{position: absolute}
 #main{padding-top: 64px;}
 .cm-header {
-    top: 20px;
+    top: 0;
+    margin-top: 20px;
 	background-color:#ff6c10;
 	height: 44px;
 	line-height: 44px;
