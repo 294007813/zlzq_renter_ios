@@ -11,10 +11,11 @@ body { line-height:18px;color:#333;/*background: #EEE*/}
 .webtxt{color:#f05141;}
 .weblink{color:#f05141;}
 
-#headerview{height:44px;position: absolute;width:100%}
+#headerview{height:44px;position: absolute;width:100%;background-color:white;}
 #headerview .abs{position: absolute}
-#main{padding-top: 44px;}
+#main{padding-top: 64px;}
 .cm-header {
+    top: 20px;
 	background-color:#ff6c10;
 	height: 44px;
 	line-height: 44px;
