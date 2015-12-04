@@ -16,7 +16,7 @@ body { line-height:18px;color:#333;/*background: #EEE*/}
 #main{padding-top: 64px;}
 .cm-header {
     top: 0;
-    border-top:solid 20px white;
+    border-top: 20px solid white;
 	background-color:#ff6c10;
 	height: 44px;
 	line-height: 44px;
