@@ -81,10 +81,10 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
             var height=$(window).height();
             ////alert(height);
             if(height<615){
-                self.$(".house_slider1").css("height","350px");
-                self.$(".house_slider1 img").css("height","350px");
-                self.$(".cui-navContainer").css("top","300px");
-                self.$(".cm-slide").css("height","350px");
+                self.$(".house_slider1").css("height","260px");
+                self.$(".house_slider1 img").css("height","260px");
+                self.$(".cui-navContainer").css("top","240px");
+                self.$(".cm-slide").css("height","260px");
                 //}else{
                 //    self.$(".slide-block ").css("height","415px");
                 //    self.$(".slide-block img").css("height","415px");
