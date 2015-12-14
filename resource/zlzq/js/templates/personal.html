@@ -1,40 +1,3 @@
-<!--<script type="text/javascript">
-    $(document).bind('deviceready',function(){
-        $('#camera').bind('touchstart',function(){
-            alert("-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;");
-            navigator.camera.getPicture(function(data){
-                $('#picture').attr('src','data:image/jpeg;base64,'+data);
-
-            },function(error){
-                console.log('Error');
-            },{
-                destinationType:Camera.DestinationType.DATA_URL,
-                sourceType:Camera.PictureSourceType.CAMERA,
-                allowEdit:false,
-                targetWidth:135,
-                targetHeight:200
-            });
-        });
-
-        $('#choose-box').bind('touchstart',function(){
-            navigator.camera.getPicture(function(data){
-                $('#picture').attr('src','data:image/jpeg;base64,'+data);
-
-            },function(error){
-                console.log('Error');
-            },{
-                destinationType:Camera.DestinationType.DATA_URL,
-                sourceType:Camera.PictureSourceType.PHOTOLIBRARY,
-                allowEdit:false,
-                targetWidth:135,
-                targetHeight:200,
-                mediaType:Camera.MediaType.PICTURE
-            });
-        });
-
-
-    });
-</script>-->
 <div style="margin-bottom: 20px"></div>
 <div class="personal">
     <div class="info-box">
@@ -93,7 +56,7 @@
             </div>
         </div>
     </div>-->
-   <div class="pwd_box" style="display: none">
+   <div class="pwd_box">
         <ul class="login_box " >
             <li>
                 <label>原来密码</label>

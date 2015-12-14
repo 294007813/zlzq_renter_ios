@@ -92,15 +92,14 @@ define(['BaseView', "cUIInputClear", "Model", "Store",], function (BaseView, cUI
         onShow: function () {
             self.cancel();
             var noCheck = Lizard.P("noCheck");
-          //  self.setHeader();
-         //   self.showLoading();
-            //self.hideLoading();
             $("#headerview").hide();
 
-            if (!self.iframeContent) {
+            if (self.iframeContent) {
+                $(self.$el.find(".content")).empty();
+            }
                 var iframe = document.createElement("iframe");
                 iframe.width = "100%";
-                iframe.height =( this.calcPageHeight(document)-44)+"px";
+                iframe.height =( this.calcPageHeight(document)-40)+"px";
                 iframe.src = "./map.html";
                 iframe.frameBorder = "0";
                 iframe.frameBorder = "no";
@@ -120,9 +119,7 @@ define(['BaseView', "cUIInputClear", "Model", "Store",], function (BaseView, cUI
 
                 $(self.$el.find(".content")).append(iframe);
                 self.iframeContent = iframe;
-            }else{
-                  self.hideLoading();
-            }
+
         },
 
 
