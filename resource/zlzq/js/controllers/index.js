@@ -69,7 +69,7 @@ define(['BaseView', "cUIInputClear", "Model", "Store",], function (BaseView, cUI
 
         },
         getRealties:function(callback) {
-
+            //以下代码
             $.ajax({
                 url: Lizard.host+Lizard.apiUrl+'realties/get_counts',
                // url: 'http://zlzq.easybird.cn/api/v1/districts',
@@ -80,6 +80,59 @@ define(['BaseView', "cUIInputClear", "Model", "Store",], function (BaseView, cUI
                    callback && callback(data);
                 }
             });
+
+            ////以下测试代码
+            //var data={
+            //    "district_counts": [
+            //        {
+            //            "district_id": 2,
+            //            "district": "浦东新区",
+            //            "realty_count": 76
+            //        },
+            //        {
+            //            "district_id": 3,
+            //            "district": "闵行区",
+            //            "realty_count": 41
+            //        },
+            //        {
+            //            "district_id": 4,
+            //            "district": "静安区",
+            //            "realty_count": 5
+            //        },
+            //        {
+            //            "district_id": 6,
+            //            "district": "闸北区",
+            //            "realty_count": 12
+            //        },
+            //        {
+            //            "district_id": 7,
+            //            "district": "黄浦区",
+            //            "realty_count": 8
+            //        },
+            //        {
+            //            "district_id": 8,
+            //            "district": "虹口区",
+            //            "realty_count": 13
+            //        },
+            //        {
+            //            "district_id": 12,
+            //            "district": "长宁区",
+            //            "realty_count": 20
+            //        },
+            //        {
+            //            "district_id": 13,
+            //            "district": "普陀区",
+            //            "realty_count": 24
+            //        },
+            //        {
+            //            "district_id": 15,
+            //            "district": "徐汇区",
+            //            "realty_count": 25
+            //        }
+            //    ]
+            //}
+            //callback && callback(data);
+
         },
         afterIframeLoad:function() {
             var iDoc = self.iframeContent.contentDocument || iframe.document;
@@ -94,9 +147,10 @@ define(['BaseView', "cUIInputClear", "Model", "Store",], function (BaseView, cUI
             var noCheck = Lizard.P("noCheck");
             $("#headerview").hide();
 
-            if (self.iframeContent) {
+            //if (self.iframeContent) {
+            //delete iframe;
                 $(self.$el.find(".content")).empty();
-            }
+            //}
                 var iframe = document.createElement("iframe");
                 iframe.width = "100%";
                 iframe.height =( this.calcPageHeight(document)-40)+"px";
