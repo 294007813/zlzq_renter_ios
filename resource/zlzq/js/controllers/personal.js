@@ -1,4 +1,4 @@
-define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupSelect","text!TplPersonal"], function (BaseView, cUIInputClear,cUIImageSlider, Model, Store,UIGroupSelect,tplPersonal) {
+define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupSelect","text!TplPersonal","MegaPixImage"], function (BaseView, cUIInputClear,cUIImageSlider, Model, Store,UIGroupSelect,tplPersonal,MegaPixImage) {
     var self;
     var View = BaseView.extend({
         ViewName: 'personal.',
@@ -35,19 +35,24 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
         },
         //点击选择相册
         readFile: function (e) {
-
             var self=this,
                 file = e.currentTarget.files[0];
-            var reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = function(e) {
-                $('#picture')[0].src = this.result;
-                self.cancelEditing();
 
-                self.uploadPicture(this.result.substring(this.result.lastIndexOf(";")+8));
-            }
+            self.cancelEditing();
+
+            var mpImg = new MegaPixImage(file),
+                _canvas=document.getElementById("g_canvas");
+            var _max = 320;
+            mpImg.render(_canvas, {
+                maxHeight: _max
+            },function(){
+                var  src = _canvas.toDataURL("image/jpeg");
+                $('#picture')[0].src = src;
+                self.uploadPicture(src.substring(src.lastIndexOf(";")+8));
+            })
 
         },
+
         uploadPicture:function(data){
             self.showLoading();
             var url = Lizard.host + Lizard.apiUrl + "renters/"+self.user.actor_id+"/save_avatar?auth_token="+ self.user.authentication_token;
@@ -379,7 +384,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             self.setHeader();
             self.user=self.getCurrentUser();
             self.GetData();
-
+            $('body').append($('<canvas id="g_canvas" style="display: none;"></canvas>'));
 
 
 
