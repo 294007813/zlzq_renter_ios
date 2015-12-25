@@ -37,6 +37,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
         readFile: function (e) {
             var self=this,
                 file = e.currentTarget.files[0];
+<<<<<<< HEAD
 
             self.cancelEditing();
 
@@ -53,6 +54,36 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
 
         },
 
+=======
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function(e) {
+                //$('#picture')[0].src = this.result;
+                console.log( this.result);
+                self.imgScale(this.result,.5,function(src){
+                    $('#picture')[0].src =src;
+                    self.cancelEditing();
+                    self.uploadPicture(this.result.substring(this.result.lastIndexOf(";")+8));
+                })
+
+            }
+        },
+        imgScale: function  (src , scale,callback) {
+            if (!src) return callback(false)
+            var _canvas = document.getElementById('g_canvas'),
+                 type=src.substring(0,src.lastIndexOf(";")).replace("data:","");
+            var tImg = new Image();
+            tImg.onload = function(){
+                var _context = _canvas.getContext('2d');
+                _canvas.width = tImg.naturalWidth;
+                _canvas.height = tImg.naturalHeight;
+                _context.drawImage(tImg,0,0);
+                src = _canvas.toDataURL(type , scale);
+               callback(src);
+            };
+            tImg.src = src
+       },
+>>>>>>> 2642f2304a23f2357f1984f796bc8df29bff1b1f
         uploadPicture:function(data){
             self.showLoading();
             var url = Lizard.host + Lizard.apiUrl + "renters/"+self.user.actor_id+"/save_avatar?auth_token="+ self.user.authentication_token;
@@ -386,7 +417,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             self.GetData();
             $('body').append($('<canvas id="g_canvas" style="display: none;"></canvas>'));
 
-
+            $('body').append($('<canvas id="g_canvas" style="display: none;"></canvas>'));
 
         },
         //设置标题
