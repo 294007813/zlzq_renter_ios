@@ -316,8 +316,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
                             self.$('.bg_mask').hide();
                             self.$('.js_user_center').addClass('hide');
                         }
-                        Lizard.goTo("list.html");
-                        //window.location.href="list.html"
+                        Lizard.goTo("list.html"+Lizard.P("favorite")?"?favorite=1":"");
+
 
                     },
                     commitHandler: function () {
