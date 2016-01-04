@@ -316,8 +316,11 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
                             self.$('.bg_mask').hide();
                             self.$('.js_user_center').addClass('hide');
                         }
-                        Lizard.goTo("list.html"+Lizard.P("favorite")?"?favorite=1":"");
-
+                        if(Lizard.P("favorite")){
+                            Lizard.goTo("list.html?favorite=1");
+                        }else{
+                            Lizard.goTo("list.html");
+                        }
 
                     },
                     commitHandler: function () {
